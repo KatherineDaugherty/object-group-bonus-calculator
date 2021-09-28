@@ -31,6 +31,7 @@ const employees = [
   }
 ];
 
+
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
 // This problem is massive! Break the problem down, take small steps, and test as you go.
@@ -41,50 +42,47 @@ const employees = [
 //let firstEmployee = employees[2]
 //console.log(firstEmployee);
 
-function bonusPercentageFunction(object) {
+function bonusPercentageFunction(array) {
   let employeeBonusInfo = [];
   let bonusPercentage = 0;
-  
 
-  for (let employee of object ) {
-  if (object.reviewRating <= 2) {
-    bonusPercentage += 0;
-  } else if (object.reviewRating === 3) {
-    bonusPercentage += 4 ;
-  } else if (object.reviewRating === 4) {
-   bonusPercentage += 6  ;
-  } else if (object.reviewRating === 5) {
-    bonusPercentage += 10  ;
-  } if (object.employeeNumber.length === 4){
-    bonusPercentage += 5 ;
-  } if (object.annualSalary > 65000) {
-    bonusPercentage -= 1 ;
-  } if (bonusPercentage > 13) {
-    bonusPercentage = 13;
-  } if (bonusPercentage < 0){
-    bonusPercentage = 0 ;
-  }
-}
-  let actualBonusPercentage = bonusPercentage/100;
+
+  for (let employee of array) {
+    if (employee.reviewRating <= 2) {
+      bonusPercentage += 0;
+    } else if (employee.reviewRating === 3) {
+      bonusPercentage += 4;
+    } else if (employee.reviewRating === 4) {
+      bonusPercentage += 6;
+    } else if (employee.reviewRating === 5) {
+      bonusPercentage += 10;
+    } if (employee.employeeNumber.length === 4) {
+      bonusPercentage += 5;
+    } if (employee.annualSalary > 65000) {
+      bonusPercentage -= 1;
+    } if (bonusPercentage > 13) {
+      bonusPercentage = 13;
+    } if (bonusPercentage < 0) {
+      bonusPercentage = 0;
+    }
+  
+  let actualBonusPercentage = bonusPercentage / 100;
   console.log(actualBonusPercentage);
 
-  let bonusTotal = (object.annualSalary * actualBonusPercentage);
+  let bonusTotal = (employee.annualSalary * actualBonusPercentage);
   console.log('Total Bonus', bonusTotal);
-  let totalCompensation = bonusTotal + Number(object.annualSalary);
+  let totalCompensation = bonusTotal + Number(employee.annualSalary);
   console.log('total comp', totalCompensation);
-  
-  return {
-     name: object.name,
-     bonusPercentage: actualBonusPercentage,
-     totalCompensation: totalCompensation,
-     totalBonus: bonusTotal
-  }
-  
-}
+
+  employeeBonusInfo.push({
+    name: array.name,
+    bonusPercentage: actualBonusPercentage,
+    totalCompensation: totalCompensation,
+    totalBonus: bonusTotal
+    }) // object add 
+  } //for loop end 
+  return employeeBonusInfo;
+} //end function
 
 console.log(bonusPercentageFunction(employees));
 
-
-
-
-console.log(employees);
