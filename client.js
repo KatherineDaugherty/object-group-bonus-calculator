@@ -38,5 +38,53 @@ const employees = [
 
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
+//let firstEmployee = employees[2]
+//console.log(firstEmployee);
 
-console.log( employees );
+function bonusPercentageFunction(object) {
+  let employeeBonusInfo = [];
+  let bonusPercentage = 0;
+  
+
+  for (let employee of object ) {
+  if (object.reviewRating <= 2) {
+    bonusPercentage += 0;
+  } else if (object.reviewRating === 3) {
+    bonusPercentage += 4 ;
+  } else if (object.reviewRating === 4) {
+   bonusPercentage += 6  ;
+  } else if (object.reviewRating === 5) {
+    bonusPercentage += 10  ;
+  } if (object.employeeNumber.length === 4){
+    bonusPercentage += 5 ;
+  } if (object.annualSalary > 65000) {
+    bonusPercentage -= 1 ;
+  } if (bonusPercentage > 13) {
+    bonusPercentage = 13;
+  } if (bonusPercentage < 0){
+    bonusPercentage = 0 ;
+  }
+}
+  let actualBonusPercentage = bonusPercentage/100;
+  console.log(actualBonusPercentage);
+
+  let bonusTotal = (object.annualSalary * actualBonusPercentage);
+  console.log('Total Bonus', bonusTotal);
+  let totalCompensation = bonusTotal + Number(object.annualSalary);
+  console.log('total comp', totalCompensation);
+  
+  return {
+     name: object.name,
+     bonusPercentage: actualBonusPercentage,
+     totalCompensation: totalCompensation,
+     totalBonus: bonusTotal
+  }
+  
+}
+
+console.log(bonusPercentageFunction(employees));
+
+
+
+
+console.log(employees);
