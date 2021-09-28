@@ -84,5 +84,5 @@ function bonusPercentageFunction(array) {
   return employeeBonusInfo;
 } //end function
 
-console.log(bonusPercentageFunction(employees));
+bonusPercentageFunction(employees)
 
