@@ -71,7 +71,7 @@ function bonusPercentageFunction(array) {
 
   let bonusTotal = (employee.annualSalary * actualBonusPercentage);
   console.log('Total Bonus', bonusTotal);
-  let totalCompensation = bonusTotal + employee.annualSalary;
+  let totalCompensation = bonusTotal + Number(employee.annualSalary);
   console.log('total comp', totalCompensation);
 
   employeeBonusInfo.push({
