@@ -71,18 +71,21 @@ function bonusPercentageFunction(array) {
 
   let bonusTotal = (employee.annualSalary * actualBonusPercentage);
   console.log('Total Bonus', bonusTotal);
-  let totalCompensation = bonusTotal + Number(employee.annualSalary);
+  let totalCompensation = bonusTotal + employee.annualSalary;
   console.log('total comp', totalCompensation);
 
   employeeBonusInfo.push({
-    name: array.name,
+    name: employees.name,
     bonusPercentage: actualBonusPercentage,
     totalCompensation: totalCompensation,
     totalBonus: bonusTotal
     }) // object add 
-  } //for loop end 
-  return employeeBonusInfo;
+  } //for loop end
+  return employeeBonusInfo
 } //end function
 
-bonusPercentageFunction(employees)
+console.log(bonusPercentageFunction(employees));
+
+
+
 
